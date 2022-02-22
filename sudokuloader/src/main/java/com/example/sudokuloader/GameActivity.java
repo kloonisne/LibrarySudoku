@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -33,6 +35,9 @@ public class GameActivity extends AppCompatActivity {
     static private SudokuGrid grid;
     static private Numpad numpad;
     static private Stack<CellState> stack = new Stack<>();
+
+    TextView title;
+    ImageView reset,tutorial;
 
     SudokuSolver solver = new SudokuSolver();
 
@@ -192,6 +197,10 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        title = findViewById(R.id.title);
+        reset = findViewById(R.id.reset);
+        tutorial = findViewById(R.id.tutorial);
+
         Bundle bundle = getIntent().getExtras();
         difficulty = bundle.getInt("difficulty", 0);
         status = bundle.getInt("status", 0);
@@ -200,12 +209,21 @@ public class GameActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // setup action bar title
-        //getSupportActionBar().setTitle(DIFFICULT_NAME[difficulty]);
+        //getSupportActionBar().setTitle(DIFFICULT_NAME[difficulty]);  not working in base app
+        //Instead created a view for action bar
+        title.setText(DIFFICULT_NAME[difficulty]);
+        reset.setOnClickListener(view -> {
+            onClickReset();
+        });
+        tutorial.setOnClickListener(view -> {
+            onClickTutorial();
+        });
 
         // hide status bar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Button btnSubmit = findViewById(R.id.btn_submit);
+
         btnSubmit.setTypeface(AppConstant.APP_FONT);
 
         String solutionString = bundle.getString("solutionString", "none");
