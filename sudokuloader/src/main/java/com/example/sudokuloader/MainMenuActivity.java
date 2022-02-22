@@ -38,7 +38,7 @@ public class MainMenuActivity extends AppCompatActivity {
         btnResume.setTypeface(appFont);
 
         btnPlay.setOnClickListener(view -> {
-            Toast.makeText(MainMenuActivity.this,"asas",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainMenuActivity.this,"asas",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainMenuActivity.this,DifficultyMenuActivity.class));
         });
 
