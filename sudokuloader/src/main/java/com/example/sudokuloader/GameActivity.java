@@ -98,7 +98,7 @@ public class GameActivity extends AppCompatActivity {
             SQLiteDatabase database = DBHelper.getWritableDatabase();
             database.insert("GameState", null, state.getContentValues());
         } catch (Exception e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -251,11 +251,11 @@ public class GameActivity extends AppCompatActivity {
     public void onClickSubmit(View view) {
 
         if (!grid.isCompletelyFilled()) {
-            Toast.makeText(this, "Complete the table first before submitting", LENGTH_LONG).show();
+            Toast.makeText(this, "Complete the table first before submitting", Toast.LENGTH_SHORT).show();
             return;
         }
         if (solver.checkValidGrid(grid.getNumbers())) {
-            Toast.makeText(this, "Congratulations, You have solved the sudoku", LENGTH_LONG).show();
+            Toast.makeText(this, "Congratulations, You have solved the sudoku", Toast.LENGTH_SHORT).show();
             status = 0;
             if (status >= 0) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Light_Dialog);
@@ -282,7 +282,7 @@ public class GameActivity extends AppCompatActivity {
             // set status to GAME_DONE
             status = -3;
         } else {
-            Toast.makeText(this, "Incorrectly Filled Sudoku", LENGTH_LONG).show();
+            Toast.makeText(this, "Incorrectly Filled Sudoku", Toast.LENGTH_SHORT).show();
         }
     }
 

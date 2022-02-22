@@ -61,7 +61,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/GAME_BACKGROUND_COLOR"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:layout_editor_absoluteX="0dp">
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:backgroundTint="@color/SUBMIT_BUTTON_COLOR"
+                android:backgroundTint="@color/colorPrimary"
                 android:gravity="center"
                 android:onClick="onClickSubmit"
                 android:text="Submit"
