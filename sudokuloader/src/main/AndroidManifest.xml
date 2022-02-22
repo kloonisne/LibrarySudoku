@@ -6,6 +6,28 @@
         <activity
             android:name=".TestActivity"
             android:exported="false" />
+        <activity android:name=".DifficultyMenuActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name=".MainMenuActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name=".GameActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            />
+
+        <activity android:name=".LadderboardActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name=".SaveAchievementActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            />
+
     </application>
 
 </manifest>
