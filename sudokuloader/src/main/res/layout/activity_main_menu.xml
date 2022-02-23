@@ -25,8 +25,8 @@
 
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="150dp">
+        tools:layout_editor_absoluteX="-40dp"
+        tools:layout_editor_absoluteY="207dp">
 
         <ImageView
             android:id="@+id/sudoku_icon"
@@ -35,8 +35,7 @@
             android:layout_above="@id/btnPlay"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
-            android:background="@android:drawable/dialog_holo_dark_frame"
-            android:src="@drawable/ic_sudoku" />
+            android:src="@drawable/sudoku" />
 
         <Button
             android:id="@+id/btnPlay"
