@@ -3,10 +3,13 @@ package com.example.sudokuloader;
 import static android.widget.Toast.LENGTH_LONG;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
@@ -24,6 +27,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -211,6 +216,7 @@ public class GameActivity extends AppCompatActivity {
         // setup action bar title
         //getSupportActionBar().setTitle(DIFFICULT_NAME[difficulty]);  not working in base app
         //Instead created a view for action bar
+
         title.setText(DIFFICULT_NAME[difficulty]);
         reset.setOnClickListener(view -> {
             onClickReset();
@@ -258,24 +264,25 @@ public class GameActivity extends AppCompatActivity {
             Toast.makeText(this, "Congratulations, You have solved the sudoku", Toast.LENGTH_SHORT).show();
             status = 0;
             if (status >= 0) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Light_Dialog);
-                dialog.setMessage("Do you want to exit the sudoku?")
-                        .setTitle("You Won")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                //saveAchievement();
-
-                                finish();
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        })
-                        .show();
+//                AlertDialog.Builder dialog = new AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Light_Dialog);
+//                dialog.setMessage("Do you want to exit the sudoku?")
+//                        .setTitle("You Won")
+//                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                //saveAchievement();
+//
+//                                finish();
+//                            }
+//                        })
+//                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                dialogInterface.cancel();
+//                            }
+//                        })
+//                        .show();
+                showDialog();
                 timer.stop();
                 status = 1;
             }
@@ -365,4 +372,24 @@ public class GameActivity extends AppCompatActivity {
     public static void setSelectedCell(int index) {
         grid.setSelectedCell(index);
     }
+
+    public void showDialog() {
+        try {
+            Dialog dialog = new Dialog(this, R.style.AppTheme);
+            dialog.setContentView(R.layout.success);
+            dialog.setCancelable(false);
+            Button close = dialog.findViewById(R.id.close);
+
+            close.setOnClickListener(view -> {
+                finish();
+            });
+
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.getWindow().setWindowAnimations(R.style.DialogAnimation);
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

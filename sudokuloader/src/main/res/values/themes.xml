@@ -36,4 +36,9 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_zoom_in_animation</item>
+        <item name="android:windowExitAnimation">@anim/dialog_zoom_out_animation</item>
+    </style>
+
 </resources>

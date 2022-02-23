@@ -4,12 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/blue_gradient"
     tools:context="MainMenuActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="stars.json"
+        app:lottie_loop="true" />
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="150dp">
@@ -38,6 +52,7 @@
             android:textAllCaps="false"
             android:textColor="#F0F0F0"
             android:textSize="30dp" />
+
         <Button
             android:id="@+id/btnResume"
             android:layout_width="170dp"
@@ -45,16 +60,14 @@
             android:layout_below="@id/btnPlay"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_corner"
-            android:textColor="#F0F0F0"
             android:onClick="onClickResume"
             android:text="Resume"
-            android:visibility="invisible"
             android:textAllCaps="false"
+            android:textColor="#F0F0F0"
             android:textSize="25dp"
-            />
+            android:visibility="invisible" />
 
         <Button
-            android:visibility="gone"
             android:id="@+id/btnLadderBoard"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
@@ -68,7 +81,8 @@
             android:text="Ladderboard"
             android:textAllCaps="false"
             android:textColor="#F0F0F0"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:visibility="gone" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

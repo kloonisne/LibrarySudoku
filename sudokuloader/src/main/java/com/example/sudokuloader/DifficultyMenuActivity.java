@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,21 +29,21 @@ public class DifficultyMenuActivity extends AppCompatActivity {
         Typeface defaultFont = Typeface.createFromAsset(getAssets(), getString(R.string.app_font));
 
         /* resize buttons */
-        Button btnEasy = findViewById(R.id.btn_easy);
-        btnEasy.setTypeface(defaultFont);
-        btnEasy.setWidth(width);
-
-        Button btnNormal = findViewById(R.id.btn_normal);
-        btnNormal.setTypeface(defaultFont);
-        btnNormal.setWidth(width);
-
-        Button btnHard = findViewById(R.id.btn_hard);
-        btnHard.setTypeface(defaultFont);
-        btnHard.setWidth(width);
-
-        Button btnExtreme = findViewById(R.id.btn_extreme);
-        btnExtreme.setTypeface(defaultFont);
-        btnExtreme.setWidth(width);
+//        LinearLayout btnEasy = findViewById(R.id.btn_easy);
+//        btnEasy.setTypeface(defaultFont);
+//        btnEasy.setWidth(width);
+//
+//        Button btnNormal = findViewById(R.id.btn_normal);
+//        btnNormal.setTypeface(defaultFont);
+//        btnNormal.setWidth(width);
+//
+//        Button btnHard = findViewById(R.id.btn_hard);
+//        btnHard.setTypeface(defaultFont);
+//        btnHard.setWidth(width);
+//
+//        Button btnExtreme = findViewById(R.id.btn_extreme);
+//        btnExtreme.setTypeface(defaultFont);
+//        btnExtreme.setWidth(width);
 
         /* set fullscreen */
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
